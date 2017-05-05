@@ -16,6 +16,9 @@
 		04582A741EBB72E800C73149 /* MoviesDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A731EBB72E800C73149 /* MoviesDBUITests.swift */; };
 		04582A841EBB739D00C73149 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A831EBB739D00C73149 /* NetworkManager.swift */; };
 		04582A861EBB73B500C73149 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A851EBB73B500C73149 /* Movie.swift */; };
+		04582A8A1EBB921700C73149 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A891EBB921700C73149 /* CollectionViewCell.swift */; };
+		04582A8D1EBBAABC00C73149 /* UIImageView+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A8C1EBBAABC00C73149 /* UIImageView+Network.swift */; };
+		04582A901EBBBE0900C73149 /* CollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A8F1EBBBE0800C73149 /* CollectionLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		04582A751EBB72E800C73149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04582A831EBB739D00C73149 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = ../../Movies/Movies/NetworkManager/NetworkManager.swift; sourceTree = "<group>"; };
 		04582A851EBB73B500C73149 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = ../../Movies/Movies/Models/Movie.swift; sourceTree = "<group>"; };
+		04582A891EBB921700C73149 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		04582A8C1EBBAABC00C73149 /* UIImageView+Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Network.swift"; path = "../../StarbucksFinal/StarbucksFinal/Extensions/UIImageView+Network.swift"; sourceTree = "<group>"; };
+		04582A8F1EBBBE0800C73149 /* CollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionLayout.swift; path = Layout/CollectionLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +107,12 @@
 		04582A521EBB72E700C73149 /* MoviesDB */ = {
 			isa = PBXGroup;
 			children = (
+				04582A8B1EBBAA7800C73149 /* Extensions */,
 				04582A821EBB734600C73149 /* NetworkManager */,
 				04582A811EBB734200C73149 /* Models */,
-				04582A531EBB72E700C73149 /* AppDelegate.swift */,
+				04582A8E1EBBBC5900C73149 /* Layout */,
 				04582A551EBB72E700C73149 /* ViewController.swift */,
+				04582A531EBB72E700C73149 /* AppDelegate.swift */,
 				04582A571EBB72E700C73149 /* Main.storyboard */,
 				04582A5A1EBB72E700C73149 /* Assets.xcassets */,
 				04582A5C1EBB72E700C73149 /* LaunchScreen.storyboard */,
@@ -145,6 +153,23 @@
 				04582A831EBB739D00C73149 /* NetworkManager.swift */,
 			);
 			name = NetworkManager;
+			sourceTree = "<group>";
+		};
+		04582A8B1EBBAA7800C73149 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04582A8C1EBBAABC00C73149 /* UIImageView+Network.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		04582A8E1EBBBC5900C73149 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				04582A891EBB921700C73149 /* CollectionViewCell.swift */,
+				04582A8F1EBBBE0800C73149 /* CollectionLayout.swift */,
+			);
+			name = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +307,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04582A841EBB739D00C73149 /* NetworkManager.swift in Sources */,
+				04582A8A1EBB921700C73149 /* CollectionViewCell.swift in Sources */,
 				04582A561EBB72E700C73149 /* ViewController.swift in Sources */,
 				04582A861EBB73B500C73149 /* Movie.swift in Sources */,
+				04582A901EBBBE0900C73149 /* CollectionLayout.swift in Sources */,
 				04582A541EBB72E700C73149 /* AppDelegate.swift in Sources */,
+				04582A8D1EBBAABC00C73149 /* UIImageView+Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
