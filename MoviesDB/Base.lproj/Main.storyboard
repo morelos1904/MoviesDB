@@ -26,24 +26,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vda-7K-iUh">
-                                    <size key="itemSize" width="180" height="250"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="itemSize" width="180" height="270"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="JEw-Ln-xBC" customClass="CollectionViewCell" customModule="MoviesDB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="250"/>
+                                        <rect key="frame" x="0.0" y="50" width="180" height="270"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="270"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="38Q-cF-cqj">
-                                                    <rect key="frame" x="18" y="18" width="144" height="186"/>
+                                                    <rect key="frame" x="18" y="28" width="144" height="196"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-NI-PRb">
-                                                    <rect key="frame" x="18" y="214" width="144" height="18"/>
+                                                    <rect key="frame" x="18" y="234" width="144" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="38Q-cF-cqj" firstAttribute="top" secondItem="JEw-Ln-xBC" secondAttribute="topMargin" constant="10" id="EJy-7w-elo"/>
+                                            <constraint firstItem="38Q-cF-cqj" firstAttribute="top" secondItem="JEw-Ln-xBC" secondAttribute="topMargin" constant="20" id="EJy-7w-elo"/>
                                             <constraint firstItem="38Q-cF-cqj" firstAttribute="trailing" secondItem="JEw-Ln-xBC" secondAttribute="trailingMargin" constant="-10" id="gbt-7L-hob"/>
                                             <constraint firstItem="38Q-cF-cqj" firstAttribute="leading" secondItem="JEw-Ln-xBC" secondAttribute="leadingMargin" constant="10" id="nRe-5W-zW7"/>
                                             <constraint firstItem="sGv-NI-PRb" firstAttribute="bottom" secondItem="JEw-Ln-xBC" secondAttribute="bottomMargin" constant="-10" id="wD8-cc-oVu"/>
@@ -65,6 +65,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Header" reuseIdentifier="Header" id="2Mr-Cs-5Oq">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="cvM-BR-Xsh"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="t1E-ah-k15"/>
@@ -91,6 +95,7 @@
         <!--Navigation Controller-->
         <scene sceneID="C5Y-gs-fQN">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wfa-RF-ex3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eji-Ex-I0x" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZdF-yO-BhW">
@@ -102,7 +107,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FzP-sb-qhW"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wfa-RF-ex3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="96.7016491754123"/>
         </scene>

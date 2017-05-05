@@ -18,7 +18,6 @@
 		04582A861EBB73B500C73149 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A851EBB73B500C73149 /* Movie.swift */; };
 		04582A8A1EBB921700C73149 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A891EBB921700C73149 /* CollectionViewCell.swift */; };
 		04582A8D1EBBAABC00C73149 /* UIImageView+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A8C1EBBAABC00C73149 /* UIImageView+Network.swift */; };
-		04582A901EBBBE0900C73149 /* CollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04582A8F1EBBBE0800C73149 /* CollectionLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +55,6 @@
 		04582A851EBB73B500C73149 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = ../../Movies/Movies/Models/Movie.swift; sourceTree = "<group>"; };
 		04582A891EBB921700C73149 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		04582A8C1EBBAABC00C73149 /* UIImageView+Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+Network.swift"; path = "../../StarbucksFinal/StarbucksFinal/Extensions/UIImageView+Network.swift"; sourceTree = "<group>"; };
-		04582A8F1EBBBE0800C73149 /* CollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionLayout.swift; path = Layout/CollectionLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				04582A891EBB921700C73149 /* CollectionViewCell.swift */,
-				04582A8F1EBBBE0800C73149 /* CollectionLayout.swift */,
 			);
 			name = Layout;
 			sourceTree = "<group>";
@@ -310,7 +307,6 @@
 				04582A8A1EBB921700C73149 /* CollectionViewCell.swift in Sources */,
 				04582A561EBB72E700C73149 /* ViewController.swift in Sources */,
 				04582A861EBB73B500C73149 /* Movie.swift in Sources */,
-				04582A901EBBBE0900C73149 /* CollectionLayout.swift in Sources */,
 				04582A541EBB72E700C73149 /* AppDelegate.swift in Sources */,
 				04582A8D1EBBAABC00C73149 /* UIImageView+Network.swift in Sources */,
 			);
@@ -557,6 +553,7 @@
 				04582A7A1EBB72E800C73149 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04582A7B1EBB72E800C73149 /* Build configuration list for PBXNativeTarget "MoviesDBTests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +562,7 @@
 				04582A7D1EBB72E800C73149 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04582A7E1EBB72E800C73149 /* Build configuration list for PBXNativeTarget "MoviesDBUITests" */ = {
 			isa = XCConfigurationList;
@@ -573,6 +571,7 @@
 				04582A801EBB72E800C73149 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

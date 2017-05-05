@@ -8,20 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate,NetworkManagerProtocol {
+class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate,NetworkManagerProtocol,UISearchResultsUpdating {
 
     let network: NetworkManager = NetworkManager ()
     var results:[Movie] = []
-    var resultsOnDisplay:[Movie] = []
-    
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredMovies:[Movie] = []
+    var flag = false
+
     @IBOutlet var collectionMovies: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         network.delegate = self
-        network.fetchMovies(query: "Fast")
-        // Do any additional setup after loading the view, typically from a nib.
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+        searchController.searchBar.sizeToFit()
+  
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,18 +35,18 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return resultsOnDisplay.count
+        return results.count
     }
     
     // make a cell for each cell index path
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        //        // get a reference to our storyboard cell
+        // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CollectionViewCell
 
-        cell.lblMovie.text = resultsOnDisplay[indexPath.row].title
-        if(!resultsOnDisplay[indexPath.row].posterPath.isEmpty){
-            cell.imgMovie.downloadImageFrom(url: URL(string: "https://image.tmdb.org/t/p/w185/" + resultsOnDisplay[indexPath.row].posterPath)!)
+        cell.lblMovie.text = results[indexPath.row].title
+        if(!results[indexPath.row].posterPath.isEmpty){
+            cell.imgMovie.downloadImageFrom(url: URL(string: "https://image.tmdb.org/t/p/w185/" + results[indexPath.row].posterPath)!)
         }else{
             cell.imgMovie.image =  UIImage(named: "not_available")
         }
@@ -51,57 +56,71 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
 
     
     func delegateReceiveLocations(movies: [Movie]) {
-        self.results = movies
+        results = movies
        
-        if(movies.count >= 8){
-            self.resultsOnDisplay = Array(movies[0..<8])
-        }else{
-            self.resultsOnDisplay = movies
-        }
+//        let x = results.map{$0.title}
+//        print(x)
+        
+        
+//        if(movies.count >= 8){
+//            self.resultsOnDisplay = Array(movies[0..<8])
+//        }else{
+//            self.resultsOnDisplay = movies
+//        }
        
-        DispatchQueue.main.async {
-            self.collectionMovies.reloadData()
-        }
+        self.collectionMovies.reloadData()
     }
     
-     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-        let scrollViewHeight = scrollView.frame.size.height
-        let scrollContentSizeHeight = scrollView.contentSize.height
-        let scrollOffset = scrollView.contentOffset.y
-        
- 
-        
-        if (scrollOffset == 0)
-        {
-            // then we are at the top
-        }
-        else if (scrollOffset + scrollViewHeight == scrollContentSizeHeight)
-        {
-            // then we are at the end
-            addElements()
-            
-        }
-        
-    }
+//     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//
+//        let scrollViewHeight = scrollView.frame.size.height
+//        let scrollContentSizeHeight = scrollView.contentSize.height
+//        let scrollOffset = scrollView.contentOffset.y
+//
+//        if (scrollOffset == 0)
+//        {
+//            // then we are at the top
+//        }
+//        else if (scrollOffset + scrollViewHeight == scrollContentSizeHeight)
+//        {
+//            // then we are at the end
+//        //    addElements()
+//        }
+//        
+//    }
     
-
-    func addElements (){
-        print(results.count)
-        print(resultsOnDisplay.count)
-        if(results.count >= resultsOnDisplay.count+8){
-            resultsOnDisplay += Array(results[resultsOnDisplay.count..<resultsOnDisplay.count+8])
-            collectionMovies.reloadData()
-            
-        }else{
-            if(results.count != resultsOnDisplay.count){
-              resultsOnDisplay += Array(results[resultsOnDisplay.count..<results.count])
-                collectionMovies.reloadData()
-                
+     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if (kind == UICollectionElementKindSectionHeader) {
+            let headerView:UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView  (ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath)
+            if !flag{
+                headerView.addSubview(searchController.searchBar)
+                flag = true
             }
+            return headerView
         }
+        return UICollectionReusableView()
+    }
+
+
+    public func updateSearchResults(for searchController: UISearchController) {
+        network.fetchMovies(query: searchController.searchBar.text!)
+    }
+    
+    func addElements (){
+//        if(results.count >= resultsOnDisplay.count+8){
+//            resultsOnDisplay += Array(results[resultsOnDisplay.count..<resultsOnDisplay.count+8])
+//            collectionMovies.reloadData()
+//        }else{
+//            if(results.count != resultsOnDisplay.count){
+//              resultsOnDisplay += Array(results[resultsOnDisplay.count..<results.count])
+//                collectionMovies.reloadData()
+//            }
+//        }
         
     }
+    
+
     
 }
 
